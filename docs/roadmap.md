@@ -21,11 +21,12 @@ What the SDK does today, and what's next — checked against the published
 
 **Contracts**
 
-- **Typed ledger reads** — `ledger().getUint64(…)` returns typed, validated state instead of hand-parsed cell hex.
-- **Reactive contract state** — `observeLedger()`, a `Flow` of ledger snapshots pushed by block subscriptions (not polling).
+- **Typed contract API** — the contract Gradle plugin generates a `<Name>Contract` facade from `contract-info.json`: typed `call` / `read` / `local` methods with your circuit's real argument and return types (`BigInteger`, `ByteArray`, generated `data class`es / `enum`s, `List<T>`, tuples), `Uint` args range-checked to their declared width. A wrong type is a compile error.
+- **Typed ledger snapshot** — the same facade's `ledger()` returns a typed `<Name>Ledger` — a `val` per exported ledger field (Counter + Cell), decoded and validated, instead of `getUint64("count")` by name.
+- **Reactive contract state** — `observeLedger()`, a `Flow` of ledger snapshots (typed or raw) pushed by block subscriptions, not polling.
 - **Resilient & idempotent calls** — built-in retry through the indexer-lag window after deploy, and `callIdempotent` that no-ops when the chain already reflects the transition.
 - **Multi-step protocol helper** — declare each step with a "done?" predicate; the saga resumes from the right step after process death.
-- **Contract Gradle plugin** — syncs compiled `.compact` artifacts, generates typed circuit calls, and enforces the runtime-version pin at build time.
+- **Contract Gradle plugin** — syncs compiled `.compact` artifacts, drives the codegen above, and enforces the runtime-version pin at build time.
 
 **Backup & sync**
 
@@ -60,7 +61,7 @@ The core is shipped and usable; the full scope below is still landing.
 
 ## Planned <span class="kuira-pill kuira-pill--soon">next</span>
 
-- **Typed ledger classes** — generated `ledger.p1Score` accessors checked at compile time (typed *circuit* calls already generate; ledger codegen is the next step).
+- **Typed ledger ADTs** — the ledger snapshot types Counter + Cell fields today; typed `Map`/`Set` reads (lookup / membership / size) are the remaining ledger shape. (Most contracts already expose these through view circuits, which the facade generates as `read<Name>()`.)
 - **Contract testing artifacts** — a fake contract with canned ledger snapshots, so you can unit-test your state machine without a live chain or prover.
 - **Published on-device proving benchmarks** — reproducible latency on named hardware. We won't publish a number without a measurement behind it.
 - **Long-term archive tier** — an encrypted archive for history and stats beyond the device-transfer vault's budget.

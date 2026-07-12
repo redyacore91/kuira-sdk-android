@@ -132,12 +132,18 @@ The DevX side — wired so you write app logic, not plumbing.
     mismatch, missing debug-cleartext — fails at **build time** with a
     clear cause, instead of surfacing as a runtime crash.
 
--   :material-cog-sync:{ .lg .middle } __Contract Gradle plugin__
+-   :material-cog-sync:{ .lg .middle } __Typed contract API, generated__
 
     ---
 
-    `io.github.kuiralabs.contract` syncs compiled `.compact` artifacts into
-    assets, validates the source, and enforces the runtime-version pin.
+    `io.github.kuiralabs.contract` reads your compiled contract's
+    `contract-info.json` and generates a typed `<Name>Contract` facade —
+    typed `call` / `read` / `local` methods carrying your circuit's real
+    argument and return types (`BigInteger`, `ByteArray`, generated
+    `data class`es and `enum`s). A wrong argument type becomes a **compile
+    error**, not a device failure; `Uint` arguments are range-checked to
+    their declared width. It also syncs the `.compact` artifacts into assets
+    and pins the runtime version.
 
 -   :material-progress-clock:{ .lg .middle } __Progress callbacks__
 
@@ -147,12 +153,14 @@ The DevX side — wired so you write app logic, not plumbing.
     state, executing, proving, balancing, submitting — so the
     otherwise-opaque proving/submission wait becomes real UX.
 
--   :material-table-check:{ .lg .middle } __Lossless typed ledger reads__
+-   :material-table-check:{ .lg .middle } __Typed ledger snapshot__
 
     ---
 
-    `MidnightContract.ledger()` returns typed, validated accessors with
-    loud failures — no silent misdecode of zero-valued vector cells.
+    The generated facade's `ledger()` returns a typed `<Name>Ledger`
+    snapshot — a `val` per exported on-chain field, decoded and
+    range-checked, with loud failures instead of silent misdecodes.
+    `observeLedger()` gives the same view, reactively, on every state change.
 
 -   :material-check-decagram:{ .lg .middle } __Auditable & modern-Android ready__
 

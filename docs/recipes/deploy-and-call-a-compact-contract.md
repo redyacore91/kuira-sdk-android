@@ -291,6 +291,33 @@ val receipt = contract.call("increment", 1L) { stage ->
 **Verify:** the transaction confirms within ~10s on PREPROD. Query
 `contract.ledger()` and check the field your circuit mutates.
 
+### Prefer the generated typed facade
+
+`contract.call("increment", 1L)` is stringly-typed — a wrong circuit name
+or argument type only fails on-device. The `io.github.kuiralabs.contract`
+plugin also generates a typed `<Name>Contract` facade from your compiled
+`contract-info.json`, so the same call is checked at **compile time**:
+
+```kotlin
+// Generated from contract-info.json: wrap the raw handle, then call
+// circuits as typed methods carrying their real argument + return types.
+val counter = CounterContract(contract)
+
+// increment(by: Uint64) -> increment(by: BigInteger); the value is
+// range-checked to the declared width. A Long or a String here won't compile.
+val receipt = counter.increment(1.toBigInteger())
+
+// progress callback is the same trailing lambda:
+counter.increment(1.toBigInteger()) { stage -> Log.d("MyApp", "stage: $stage") }
+```
+
+The facade emits, per circuit: a `call`-style method for a write, `read<Name>()`
+for an on-chain view (a value-returning circuit), and `local<Name>()` for a
+`pure` circuit (computed locally, no deploy). Value returns come back **typed** —
+`BigInteger`, `ByteArray`, generated `data class`es / `enum`s, `List<T>`, tuples.
+`contract.call(...)` stays available as an escape hatch for anything the facade
+doesn't model yet (it lists those in a KDoc note).
+
 ---
 
 ## Step 5 — React to state changes (optional)
@@ -300,15 +327,26 @@ current state immediately, then a fresh `MidnightLedger` every time the
 contract's on-chain state actually changes:
 
 ```kotlin
+// Untyped: read fields by name off the raw MidnightLedger.
 contract.observeLedger().collect { ledger ->
     val count = ledger.getUint64("count")   // your circuit's field
     // update UI…
 }
+
+// Typed (generated facade): a val per exported ledger field, decoded for you.
+CounterContract(contract).observeLedger().collect { ledger ->
+    val count = ledger.count                // BigInteger, no field name, no cast
+}
 ```
 
-It's backed by the chain's block stream (falling back to polling on a raw
-config), and de-duplicates the raw state before decoding — an unchanged
-block costs only a state fetch, not a re-decode.
+`CounterContract(contract).ledger()` is the one-shot equivalent — a typed
+`CounterLedger` snapshot. Fields the facade can't type yet (a `Map`/`Set`
+ledger ADT) are read via the contract's own view circuits (`read<Name>()`) or
+`ledger().getRaw(...)`.
+
+Both are backed by the chain's block stream (falling back to polling on a raw
+config), and de-duplicate the raw state before decoding — an unchanged block
+costs only a state fetch, not a re-decode.
 
 ---
 

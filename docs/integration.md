@@ -406,7 +406,10 @@ class MyDappViewModel @Inject constructor(
             circuitVerifierKeys = mapOf("myCircuit" to verifier)
         }
 
-        // 3. Deploy, then call a circuit.
+        // 3. Deploy, then call a circuit. `call(name, …args)` is stringly-typed;
+        //    the contract Gradle plugin also generates a typed `MyContract`
+        //    facade so `MyContract(contract).myCircuit()` is checked at compile
+        //    time (see the deploy-and-call recipe).
         val address = contract.deploy().contractAddress
         contract.call("myCircuit")
 
@@ -415,7 +418,7 @@ class MyDappViewModel @Inject constructor(
             contractJs = context.assets.open("runtime/mycontract-contract.js")
             this.address = address
         }
-        val count = readOnly.ledger().getUint64("count")
+        val count = readOnly.ledger().getUint64("count")   // or: MyContract(readOnly).ledger().count
     }
 }
 ```
