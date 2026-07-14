@@ -41,7 +41,7 @@
             </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
-        <div class="library-version" id="library-version">0.1.0-alpha04
+        <div class="library-version" id="library-version">0.1.0-alpha05
         </div>
         <div class="navigation-controls">
         <div class="filter-section filter-section_loading" id="filter-section">
@@ -127,21 +127,6 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:indexer:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-q-u-e-r-y_-c-u-r-r-e-n-t_-b-l-o-c-k.html">QUERY_CURRENT_BLOCK</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Query current block with ledger parameters.</p></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="-1217977362%2FProperties%2F1897323951" anchor-label="QUERY_GENESIS_BLOCK" id="-1217977362%2FProperties%2F1897323951" data-filterable-set=":core:indexer:dokkaHtmlPartial/release"></a>
-          <div class="table-row" data-filterable-current=":core:indexer:dokkaHtmlPartial/release" data-filterable-set=":core:indexer:dokkaHtmlPartial/release">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="-q-u-e-r-y_-g-e-n-e-s-i-s_-b-l-o-c-k.html"><span>QUERY_</span><wbr><span>GENESIS_</span><wbr><span>BLOCK</span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1217977362%2FProperties%2F1897323951"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:indexer:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-q-u-e-r-y_-g-e-n-e-s-i-s_-b-l-o-c-k.html">QUERY_GENESIS_BLOCK</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Query the GENESIS block (height 0). Its hash is a stable per-chain identity: a fresh localnet (after a <code class="lang-kotlin">docker</code> reset) has a different genesis hash, so a mismatch against the pinned value flags a chain reset. The <code class="lang-kotlin">block</code> field takes an optional <code class="lang-kotlin">offset</code>; <code class="lang-kotlin">{ height: 0 }</code> pins it to genesis (no offset = latest block).</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -232,6 +217,25 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:indexer:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-s-u-b-s-c-r-i-b-e_-z-s-w-a-p_-l-e-d-g-e-r_-e-v-e-n-t-s.html">SUBSCRIBE_ZSWAP_LEDGER_EVENTS</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Subscribe to zswap (shielded) ledger events.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1731337675%2FFunctions%2F1897323951" anchor-label="queryBlockAtHeight" id="1731337675%2FFunctions%2F1897323951" data-filterable-set=":core:indexer:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":core:indexer:dokkaHtmlPartial/release" data-filterable-set=":core:indexer:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="query-block-at-height.html"><span>query</span><wbr><span>Block</span><wbr><span>At</span><wbr><span><span>Height</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1731337675%2FFunctions%2F1897323951"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:indexer:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="query-block-at-height.html"><span class="token function">queryBlockAtHeight</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">height<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Query the block at a specific <a href="query-block-at-height.html">height</a> — the chain-reset checkpoint lookup. A missing block (the chain is shorter than the pinned checkpoint) comes back as a <code class="lang-kotlin">null</code> <code class="lang-kotlin">block</code> field, which <a href="../-indexer-client-impl/get-block-hash-at-height.html">com.midnight.kuira.core.indexer.api.IndexerClientImpl.getBlockHashAtHeight</a> maps to <a href="../-block-hash-lookup/-not-on-chain/index.html">com.midnight.kuira.core.indexer.api.BlockHashLookup.NotOnChain</a> — distinct from a failed query.</p></div></div></div>
                 </div>
               </div>
             </div>

@@ -41,7 +41,7 @@
             </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
-        <div class="library-version" id="library-version">0.1.0-alpha04
+        <div class="library-version" id="library-version">0.1.0-alpha05
         </div>
         <div class="navigation-controls">
         <div class="filter-section filter-section_loading" id="filter-section">
@@ -240,6 +240,21 @@
               </div>
             </div>
           </div>
+<a data-name="803371575%2FProperties%2F-1598735434" anchor-label="walletBackupPrefsProvider" id="803371575%2FProperties%2F-1598735434" data-filterable-set=":sdk:midnight-sdk:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sdk:midnight-sdk:dokkaHtmlPartial/release" data-filterable-set=":sdk:midnight-sdk:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="wallet-backup-prefs-provider.html"><span>wallet</span><wbr><span>Backup</span><wbr><span>Prefs</span><wbr><span><span>Provider</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="803371575%2FProperties%2F-1598735434"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-volatile/index.html"><span class="token annotation builtin">Volatile</span></a></div></div><span class="token keyword">var </span><a href="wallet-backup-prefs-provider.html">walletBackupPrefsProvider</a><span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="../-wallet-backup-prefs/index.html">WalletBackupPrefs</a><span class="token operator">?</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">SUPPLIER of the wallet-level backup prefs carried INSIDE the app-state blob (see <a href="../-wallet-backup-prefs/index.html">WalletBackupPrefs</a>) — the SDK can't derive them (the committed toggle is host UI state). A supplier, not a pushed field, on purpose: it's read at UPLOAD time, so a pref change (e.g. the restore gate committing the toggle ON, or mirroring an opt-out) is always reflected in the next blob without the host re-pushing a snapshot at every mutation site — a pushed snapshot went stale and clobbered restored cloud truth. The host sets this once per build. Null supplier / null result → prefs marked absent.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div data-togglable="FUNCTION">
@@ -344,7 +359,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="close.html"><span class="token function">close</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="close.html"><span class="token function">close</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Release resources. Suspends because closing the dust state must be serialized against an in-flight balance: <code class="lang-kotlin">balanceAgainst</code> reads the shared <a href="../../../../core/crypto/com.midnight.kuira.core.crypto.dust/-dust-local-state/index.html">DustLocalState</a>'s nullifiers under <a href="../../../../sdk/midnight-sdk/com.midnight.kuira.sdk/-midnight-wallet/balance-mutex.html">balanceMutex</a>, so closing it out from under a running balance throws "DustLocalState has been closed" (regression — every other dust-close path already holds this mutex; the teardown one added later did not). Under localnet the balance is instant so the window never opened; on PreProd it spans seconds of dust sync, so a teardown mid-deploy raced the close. Acquiring the mutex here makes the teardown WAIT for the balance instead of yanking its state.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -390,6 +405,21 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="fetch-app-state.html"><span class="token function">fetchAppState</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Fetch the previously backed-up host app state, or null if none / no coordinator / unavailable. Decryption is seed-derived (no biometric), so a freshly-signed-in device recovers its app state silently.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1510225571%2FFunctions%2F-1598735434" anchor-label="fetchRestoredAppState" id="-1510225571%2FFunctions%2F-1598735434" data-filterable-set=":sdk:midnight-sdk:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sdk:midnight-sdk:dokkaHtmlPartial/release" data-filterable-set=":sdk:midnight-sdk:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="fetch-restored-app-state.html"><span>fetch</span><wbr><span>Restored</span><wbr><span>App</span><wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1510225571%2FFunctions%2F-1598735434"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="fetch-restored-app-state.html"><span class="token function">fetchRestoredAppState</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-restored-app-state/index.html">RestoredAppState</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Fetch the full restored app state: wallet-level <a href="../-wallet-backup-prefs/index.html">WalletBackupPrefs</a> (when the blob carries the SDK envelope) + the host payload. <a href="fetch-app-state.html">fetchAppState</a> is the host-payload shortcut; this variant exists for the bootstrap restore flow, which needs the prefs to decide restore-over-genesis. One Block Store read serves both.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -479,7 +509,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="wait-for-funding.html"><span class="token function">waitForFunding</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">minNight<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/math/BigInteger.html">BigInteger</a><span class="token punctuation">, </span></span><span class="parameter ">pollIntervalMs<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">, </span></span><span class="parameter ">timeoutMs<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator"> = </span>DEFAULT_FUNDING_TIMEOUT_MS</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-wallet-balance/index.html">WalletBalance</a></div><div class="brief "><p class="paragraph">Suspend until the wallet's NIGHT balance reaches <a href="wait-for-funding.html">minNight</a> or <a href="wait-for-funding.html">timeoutMs</a> elapses.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="wait-for-funding.html"><span class="token function">waitForFunding</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">minNight<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a><span class="token punctuation">, </span></span><span class="parameter ">pollIntervalMs<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">, </span></span><span class="parameter ">timeoutMs<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator"> = </span>DEFAULT_FUNDING_TIMEOUT_MS</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-wallet-balance/index.html">WalletBalance</a></div><div class="brief "><p class="paragraph">Suspend until the wallet's NIGHT balance reaches <a href="wait-for-funding.html">minNight</a> or <a href="wait-for-funding.html">timeoutMs</a> elapses.</p></div></div></div>
                 </div>
               </div>
             </div>
