@@ -13,7 +13,7 @@ Everything you need installed before the [Quickstart](quickstart.md) or the [int
 
 | Tool | Version | Why | Check |
 |---|---|---|---|
-| **JDK** | 17 | SDK `sourceCompatibility` / `jvmTarget` | `java -version` → `17.x` |
+| **JDK** | 17 | AGP 8.13 build toolchain (the SDK targets Java 11 bytecode) | `java -version` → `17.x` |
 | **Android Studio** | latest stable | IDE, SDK manager, emulator | Help → About |
 | **Android SDK** | compileSdk 36, **minSdk 30** | the SDK requires `minSdk 30` (Block Store + Credential Manager) | SDK Manager |
 | **Docker Desktop** | running | the localnet stack (node + indexer + proof server) | `docker info` (no error) |

@@ -23,6 +23,10 @@ Kuira is the Android SDK for Midnight: on-device ZK proving, passkey identity, a
 <a href="https://github.com/kuiralabs/kuira-starter-android" class="md-button">Clone the starter</a>
 </div>
 </div>
+
+<a class="kuira-hero__scroll" href="#templates" aria-label="Scroll to examples">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg>
+</a>
 </section>
 
 <section class="kuira-templates" id="templates" markdown>
@@ -49,18 +53,6 @@ A minimal counter dApp — Sigil identity, embedded wallet, and a 6-line Compact
 </article>
 
 <article class="kuira-template" markdown>
-<img class="kuira-template__shot" src="assets/images/bboard.png" alt="BBoard — on-chain bulletin board on device" loading="lazy">
-<div class="kuira-template__body" markdown>
-<span class="kuira-template__eyebrow">Example</span>
-<h3 class="kuira-template__title">BBoard</h3>
-<p class="kuira-template__desc">
-An on-chain bulletin board — the deploy → call → read flow end-to-end: create a board, post and take down messages, or connect to one someone shared.
-</p>
-<div class="kuira-template__actions" data-copy-prompt="https://raw.githubusercontent.com/kuiralabs/example-bboard-android/main/README.md" data-task="Clone the BBoard Android example and get it running on a device, then help me customize it."></div>
-</div>
-</article>
-
-<article class="kuira-template" markdown>
 <img class="kuira-template__shot" src="assets/images/midnight-kicks.png" alt="Midnight Kicks — ZK penalty shootout on device" loading="lazy">
 <div class="kuira-template__body" markdown>
 <span class="kuira-template__eyebrow">Example</span>
@@ -72,19 +64,12 @@ A ZK penalty shootout on Unity 3D and Kotlin, with a Compact contract as the on-
 </div>
 </article>
 
-<article class="kuira-template" markdown>
-<img class="kuira-template__shot" src="assets/images/kuira-vault.svg" alt="Kuira Vault — M-of-N multisig treasury" loading="lazy">
-<div class="kuira-template__body" markdown>
-<span class="kuira-template__eyebrow">Example</span>
-<h3 class="kuira-template__title">Kuira Vault</h3>
-<p class="kuira-template__desc">
-An M-of-N multisig treasury: deposit, propose, approve, execute. A threshold of independent passkey signers governs real fund movement, with chain-truth reads and multi-device Connect.
-</p>
-<div class="kuira-template__actions" data-copy-prompt="https://raw.githubusercontent.com/kuiralabs/kuira-vault-android/main/README.md" data-task="Clone the Kuira Vault Android example and get it running on a device, then help me customize it."></div>
 </div>
-</article>
 
+<div class="kuira-templates__more" markdown>
+[See all examples →](examples.md){ .md-button }
 </div>
+
 </section>
 
 <section class="kuira-picker" id="kuira-picker" markdown>
@@ -215,11 +200,7 @@ Use `midnight-sdk`. → [Choose your level](integration.md#choose-your-level)
 [Full integration guide →](integration.md){ .md-button .md-button--primary }
 [Security & verification](security.md){ .md-button }
 
-**Working examples** — clone, build, read the source:
-[Kuira Starter](https://github.com/kuiralabs/kuira-starter-android) (minimal counter, also a GitHub template) ·
-[BBoard](https://github.com/kuiralabs/example-bboard-android) (on-chain bulletin board) ·
-[Midnight Kicks](https://github.com/kuiralabs/midnight-kicks) (ZK penalty-shootout game) ·
-[Kuira Vault](https://github.com/kuiralabs/kuira-vault-android) (M-of-N multisig treasury).
+**Working examples** — four dApps you can clone and run: [see them all →](examples.md).
 
 ---
 

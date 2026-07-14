@@ -69,8 +69,9 @@ Six lines. What each one does:
   field, named `count`, of type `Counter`. The Standard Library's
   `Counter` wraps a `Uint<64>` with built-in `.increment()` and
   `.read()` helpers. `export ledger` makes the field readable by
-  off-chain clients (the Kuira SDK reads it via
-  `contract.ledger().getUint64("count")`).
+  off-chain clients (the Kuira SDK reads it by name via
+  `contract.ledger().getUint64("count")`, or as a typed field on the
+  generated contract facade).
 - `export circuit increment(): [] { count.increment(1); }` — a single
   circuit that takes no arguments and bumps the counter by 1.
   Circuits are the on-chain entrypoints; calling one produces a

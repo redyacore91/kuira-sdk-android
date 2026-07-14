@@ -98,12 +98,13 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Capabilities: capabilities.md
-  - On-device proving: on-device-proving.md
   - Get started:
     - Prerequisites: prerequisites.md
     - Quickstart: quickstart.md
     - Install + integrate: integration.md
+  - Examples: examples.md
+  - Capabilities: capabilities.md
+  - On-device proving: on-device-proving.md
   - Recipes:
     - recipes/index.md
     - Add Kuira to an Android project: recipes/add-kuira-to-an-android-project.md

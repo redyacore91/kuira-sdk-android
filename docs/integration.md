@@ -98,7 +98,7 @@ android {
     defaultConfig {
         applicationId = "com.example.mydapp"
         minSdk = 30
-        targetSdk = 35
+        targetSdk = 36
     }
 }
 
@@ -418,7 +418,7 @@ class MyDappViewModel @Inject constructor(
             contractJs = context.assets.open("runtime/mycontract-contract.js")
             this.address = address
         }
-        val count = readOnly.ledger().getUint64("count")   // or: MyContract(readOnly).ledger().count
+        val count = MyContract(readOnly).ledger().count   // typed facade; or untyped: readOnly.ledger().getUint64("count")
     }
 }
 ```

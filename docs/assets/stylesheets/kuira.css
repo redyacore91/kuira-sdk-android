@@ -754,6 +754,150 @@ body[data-md-color-scheme][data-md-color-primary] {
     margin: 0 auto;
 }
 
+/* Smooth in-page anchor scrolling (hero cue, TOC, permalinks); reduced-motion falls back to instant. */
+html {
+    scroll-behavior: smooth;
+}
+#templates {
+    scroll-margin-top: 3.5rem;
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}
+
+/* ── Hero scroll cue — frosted GlassPanel circle with an ink chevron ── */
+.kuira-hero__scroll {
+    position: absolute;
+    left: 50%;
+    bottom: 1.25rem;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--kuira-radius-pill);
+    background: var(--kuira-card-bg);
+    border: 1px solid var(--kuira-hairline);
+    box-shadow: var(--kuira-shadow-pill);
+    -webkit-backdrop-filter: blur(var(--kuira-blur));
+    backdrop-filter: blur(var(--kuira-blur));
+    color: var(--kuira-light);
+    animation: kuira-scroll-bounce 2.4s ease-in-out infinite;
+    transition: box-shadow 0.25s ease, background 0.25s ease;
+}
+.kuira-hero__scroll:hover {
+    background: var(--kuira-void-soft);
+    box-shadow: var(--kuira-shadow-panel);
+}
+.kuira-hero__scroll svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.25;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+@keyframes kuira-scroll-bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%      { transform: translateX(-50%) translateY(5px); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .kuira-hero__scroll { animation: none; }
+}
+
+/* ── "See all examples" button, centered under the teaser grid ── */
+.kuira-templates__more {
+    text-align: center;
+    margin-top: 1.75rem;
+}
+
+/* ── Android vibe: green bugdroid beside the site title ── */
+.md-header__topic:first-child .md-ellipsis { overflow: visible; }
+.md-header__topic:first-child .md-ellipsis::after {
+    content: "";
+    display: inline-block;
+    width: 1.6em;
+    height: 1.6em;
+    margin-left: 0.55em;
+    vertical-align: -0.45em;
+    background: url("../images/android.svg") center / contain no-repeat;
+}
+
+/* ── Examples page — clean horizontal catalog cards ── */
+.kuira-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.25rem;
+    margin: 2rem 0 2.5rem;
+}
+/* Card is a link, but only the "View on GitHub" cue should ever underline. */
+.md-typeset a.kuira-example,
+.md-typeset a.kuira-example:hover {
+    text-decoration: none;
+}
+.kuira-example {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    border: 1px solid var(--kuira-hairline);
+    border-radius: var(--kuira-radius-lg);
+    background: var(--kuira-card-bg);
+    box-shadow: var(--kuira-shadow-pill);
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.kuira-example:hover {
+    box-shadow: var(--kuira-shadow-panel);
+    transform: translateY(-2px);
+    border-color: var(--kuira-light-muted);
+}
+.kuira-example__shot {
+    flex: 0 0 76px;
+    width: 76px;
+    height: auto;
+    align-self: flex-start;
+    border-radius: var(--kuira-radius-md);
+}
+.kuira-example__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    min-width: 0;
+}
+.kuira-example__eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--kuira-light-muted);
+}
+.kuira-example__title {
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--kuira-light);
+}
+.kuira-example__desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--kuira-light-soft);
+}
+.kuira-example__link {
+    margin-top: 0.35rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--kuira-light);
+}
+.kuira-example:hover .kuira-example__link {
+    text-decoration: underline;
+}
+@media (max-width: 480px) {
+    .kuira-example { flex-direction: column; }
+    .kuira-example__shot { align-self: center; }
+}
+
 .kuira-hero__eyebrow {
     display: inline-flex;
     align-items: center;

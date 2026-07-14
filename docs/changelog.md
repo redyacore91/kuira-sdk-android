@@ -1,10 +1,10 @@
 # Changelog
 
-All notable changes to the **Kuira Android SDK**. This page mirrors the SDK's
+All notable changes to the **Kuira Android SDK**. This page summarizes the SDK's
 `CHANGELOG.md`; per-release notes are also on [GitHub Releases](https://github.com/kuiralabs/kuira-sdk-android/releases).
 
 The SDK ships as a set of modules published **together on one version** to Maven Central
-under `io.github.kuiralabs` (`dapp-ui`, `midnight-sdk`, `wallet-runtime`, `wallet-seed`,
+under `io.github.kuiralabs` (`dapp-ui`, `midnight-sdk`, `wallet-runtime`, `wallet-seed`, `wallet`,
 `identity`, `auth`, `crypto`, `compact-engine`, `indexer`, `ledger`, `network`, `connector`,
 `designsystem`, `testing`), plus the `io.github.kuiralabs.contract` and
 `io.github.kuiralabs.localnet` Gradle plugins.
