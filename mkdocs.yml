@@ -113,9 +113,11 @@ nav:
     - Deploy and call a Compact contract: recipes/deploy-and-call-a-compact-contract.md
     - Back up your wallet across devices: recipes/back-up-wallet-across-devices.md
     - Reveal & restore the recovery phrase: recipes/reveal-and-restore-the-recovery-phrase.md
+    - Theme the wallet & sigil panels: recipes/theme-the-wallet-panel.md
     - Run kuiraDoctor before each release: recipes/run-kuira-doctor.md
   - API reference: api-reference.md
   - Roadmap: roadmap.md
+  - Changelog: changelog.md
   - Security: security.md
 
 extra:
@@ -134,8 +136,8 @@ extra:
   # - `kuira_contract_plugin_version` — the com.midnight.kuira.contract
   #   Gradle plugin. Tracks `kuira_version`; kept as a separate key so
   #   the two can diverge during a transition window if ever needed.
-  kuira_version: "0.1.0-alpha04"
-  kuira_contract_plugin_version: "0.1.0-alpha04"
+  kuira_version: "0.1.0-alpha05"
+  kuira_contract_plugin_version: "0.1.0-alpha05"
   # Compact toolchain triple — versioned independently from the Kuira
   # SDK alphas. compactc / language pragma / runtime npm package each
   # move on their own cadence; mismatched values surface as

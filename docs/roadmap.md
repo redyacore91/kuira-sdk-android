@@ -9,7 +9,7 @@ What the SDK does today, and what's next — checked against the published
 
 ---
 
-## Shipped <span class="kuira-pill kuira-pill--ok">alpha04</span>
+## Shipped <span class="kuira-pill kuira-pill--ok">alpha05</span>
 
 **Identity & onboarding**
 
@@ -27,6 +27,10 @@ What the SDK does today, and what's next — checked against the published
 - **Resilient & idempotent calls** — built-in retry through the indexer-lag window after deploy, and `callIdempotent` that no-ops when the chain already reflects the transition.
 - **Multi-step protocol helper** — declare each step with a "done?" predicate; the saga resumes from the right step after process death.
 - **Contract Gradle plugin** — syncs compiled `.compact` artifacts, drives the codegen above, and enforces the runtime-version pin at build time.
+- **Unshielded value movement** — contract calls and withdrawals move real UTXO-backed NIGHT, not only shielded state.
+- **Constructor arguments** — deploy a contract with constructor args, typed through the same codegen.
+- **Multi-contract projects** — a `contracts { }` DSL builds and namespaces several contracts in one app, each with its own generated package and assets.
+- **Local & batched reads** — `readLocal` runs a pure circuit against initial state with no deploy or chain; `readMany` batches several view reads on one snapshot.
 
 **Backup & sync**
 

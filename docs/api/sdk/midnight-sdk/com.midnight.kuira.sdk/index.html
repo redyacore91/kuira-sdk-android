@@ -41,7 +41,7 @@
             </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
-        <div class="library-version" id="library-version">0.1.0-alpha04
+        <div class="library-version" id="library-version">0.1.0-alpha05
         </div>
         <div class="navigation-controls">
         <div class="filter-section filter-section_loading" id="filter-section">
@@ -215,7 +215,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-dust-sync-manager/index.html">DustSyncManager</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">dustRepository<span class="token operator">: </span><a href="../../../core/indexer/com.midnight.kuira.core.indexer.repository/-dust-repository/index.html">DustRepository</a><span class="token punctuation">, </span></span><span class="parameter ">nodeRpcClient<span class="token operator">: </span><a href="../../../core/ledger/com.midnight.kuira.core.ledger.api/-node-rpc-client/index.html">NodeRpcClient</a><span class="token punctuation">, </span></span><span class="parameter ">walletAddress<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">dustSeed<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">cloudBackupSource<span class="token operator">: </span><a href="-dust-cloud-backup-source/index.html">DustCloudBackupSource</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">chainResetGuard<span class="token operator">: </span><a href="../../../core/indexer/com.midnight.kuira.core.indexer.sync/-chain-reset-guard/index.html">ChainResetGuard</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Dust state manager — keeps a single in-memory DustLocalState for the session.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-dust-sync-manager/index.html">DustSyncManager</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">dustRepository<span class="token operator">: </span><a href="../../../core/indexer/com.midnight.kuira.core.indexer.repository/-dust-repository/index.html">DustRepository</a><span class="token punctuation">, </span></span><span class="parameter ">nodeRpcClient<span class="token operator">: </span><a href="../../../core/ledger/com.midnight.kuira.core.ledger.api/-node-rpc-client/index.html">NodeRpcClient</a><span class="token punctuation">, </span></span><span class="parameter ">walletAddress<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">dustSeed<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">cloudBackupSource<span class="token operator">: </span><a href="-dust-cloud-backup-source/index.html">DustCloudBackupSource</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">chainResetGuard<span class="token operator">: </span><a href="../../../core/indexer/com.midnight.kuira.core.indexer.sync/-chain-reset-guard/index.html">ChainResetGuard</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">restoreGate<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Dust state manager — keeps a single in-memory DustLocalState for the session.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -245,7 +245,22 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-insufficient-dust-exception/index.html">InsufficientDustException</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span> : <a href="https://developer.android.com/reference/kotlin/java/lang/IllegalStateException.html">IllegalStateException</a></div><div class="brief "><p class="paragraph">Thrown when a balance can't proceed because the wallet has no spendable dust — specifically, every dust UTXO in the synced state is one the wallet already spent but whose spend the indexer's event stream hasn't reflected yet (so it's correctly excluded to avoid node error 115).</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-insufficient-dust-exception/index.html">InsufficientDustException</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span> : <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html">IllegalStateException</a></div><div class="brief "><p class="paragraph">Thrown when a balance can't proceed because the wallet has no spendable dust — specifically, every dust UTXO in the synced state is one the wallet already spent but whose spend the indexer's event stream hasn't reflected yet (so it's correctly excluded to avoid node error 115).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-625267737%2FClasslikes%2F-1598735434" anchor-label="InsufficientFundsException" id="-625267737%2FClasslikes%2F-1598735434" data-filterable-set=":sdk:midnight-sdk:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sdk:midnight-sdk:dokkaHtmlPartial/release" data-filterable-set=":sdk:midnight-sdk:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-insufficient-funds-exception/index.html"><span>Insufficient</span><wbr><span>Funds</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-625267737%2FClasslikes%2F-1598735434"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-insufficient-funds-exception/index.html">InsufficientFundsException</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span> : <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html">IllegalStateException</a></div><div class="brief "><p class="paragraph">Thrown when the wallet's unshielded NIGHT can't cover a requested amount — e.g. funding the value a contract receives via <code class="lang-kotlin">receiveUnshielded</code> in <a href="-midnight-sdk/build-unshielded-funding-json.html">MidnightSdk.buildUnshieldedFundingJson</a>.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -415,6 +430,21 @@
               </div>
             </div>
           </div>
+<a data-name="-692674939%2FClasslikes%2F-1598735434" anchor-label="RestoredAppState" id="-692674939%2FClasslikes%2F-1598735434" data-filterable-set=":sdk:midnight-sdk:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sdk:midnight-sdk:dokkaHtmlPartial/release" data-filterable-set=":sdk:midnight-sdk:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-restored-app-state/index.html"><span>Restored</span><wbr><span>App</span><wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-692674939%2FClasslikes%2F-1598735434"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-restored-app-state/index.html">RestoredAppState</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>prefs<span class="token operator">: </span><a href="-wallet-backup-prefs/index.html">WalletBackupPrefs</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>hostPayload<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">The decoded app-state blob: SDK-level <a href="-restored-app-state/prefs.html">prefs</a> (null when the blob predates the envelope — a legacy raw host payload — or was uploaded with no prefs set) + the host's own payload.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
 <a data-name="1586276315%2FClasslikes%2F-1598735434" anchor-label="RestoredDustCheckpoint" id="1586276315%2FClasslikes%2F-1598735434" data-filterable-set=":sdk:midnight-sdk:dokkaHtmlPartial/release"></a>
           <div class="table-row" data-filterable-current=":sdk:midnight-sdk:dokkaHtmlPartial/release" data-filterable-set=":sdk:midnight-sdk:dokkaHtmlPartial/release">
             <div class="main-subrow keyValue ">
@@ -460,6 +490,51 @@
               </div>
             </div>
           </div>
+<a data-name="1400136815%2FClasslikes%2F-1598735434" anchor-label="VersionCoherence" id="1400136815%2FClasslikes%2F-1598735434" data-filterable-set=":sdk:midnight-sdk:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sdk:midnight-sdk:dokkaHtmlPartial/release" data-filterable-set=":sdk:midnight-sdk:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-version-coherence/index.html"><span>Version</span><wbr><span><span>Coherence</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1400136815%2FClasslikes%2F-1598735434"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">object </span><a href="-version-coherence/index.html">VersionCoherence</a></div><div class="brief "><p class="paragraph">Pre-flight check that the client's bundled ledger version is coherent with the node it's talking to.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-12543074%2FClasslikes%2F-1598735434" anchor-label="VersionSkewException" id="-12543074%2FClasslikes%2F-1598735434" data-filterable-set=":sdk:midnight-sdk:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sdk:midnight-sdk:dokkaHtmlPartial/release" data-filterable-set=":sdk:midnight-sdk:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-version-skew-exception/index.html"><span>Version</span><wbr><span>Skew</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-12543074%2FClasslikes%2F-1598735434"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-version-skew-exception/index.html">VersionSkewException</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span> : <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html">Exception</a></div><div class="brief "><p class="paragraph">Thrown when a submit is aborted because the node's ledger version is incompatible with the client's bundled version AND the policy is set to hard-fail (<a href="-version-coherence/-h-a-r-d_-f-a-i-l_-o-n_-s-k-e-w.html">VersionCoherence.HARD_FAIL_ON_SKEW</a>). Under the default warn policy this is never thrown.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-130610046%2FClasslikes%2F-1598735434" anchor-label="WalletBackupPrefs" id="-130610046%2FClasslikes%2F-1598735434" data-filterable-set=":sdk:midnight-sdk:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sdk:midnight-sdk:dokkaHtmlPartial/release" data-filterable-set=":sdk:midnight-sdk:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-wallet-backup-prefs/index.html"><span>Wallet</span><wbr><span>Backup</span><wbr><span><span>Prefs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-130610046%2FClasslikes%2F-1598735434"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-wallet-backup-prefs/index.html">WalletBackupPrefs</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>dustBackupEnabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>dustBackupOptedOut<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Wallet-level backup preferences that travel WITH the wallet (inside the seed-keyed app-state blob) instead of dying with the install (package-local prefs).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
 <a data-name="1147481844%2FClasslikes%2F-1598735434" anchor-label="WalletBalance" id="1147481844%2FClasslikes%2F-1598735434" data-filterable-set=":sdk:midnight-sdk:dokkaHtmlPartial/release"></a>
           <div class="table-row" data-filterable-current=":sdk:midnight-sdk:dokkaHtmlPartial/release" data-filterable-set=":sdk:midnight-sdk:dokkaHtmlPartial/release">
             <div class="main-subrow keyValue ">
@@ -470,7 +545,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-wallet-balance/index.html">WalletBalance</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>unshieldedNight<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/math/BigInteger.html">BigInteger</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>shieldedNight<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/math/BigInteger.html">BigInteger</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>dust<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/math/BigInteger.html">BigInteger</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>dustRegistered<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Snapshot of a wallet's full balance state across both pools.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-wallet-balance/index.html">WalletBalance</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>unshieldedNight<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>shieldedNight<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>dust<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>dustRegistered<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Snapshot of a wallet's full balance state across both pools.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -508,7 +583,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="format-night.html"><span class="token function">formatNight</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">base<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/math/BigInteger.html">BigInteger</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Format a raw NIGHT balance (smallest units) as a human display string, trimming trailing zeros: <code class="lang-kotlin">5_000_000</code> → <code class="lang-kotlin">"5"</code>, <code class="lang-kotlin">1_500_000</code> → <code class="lang-kotlin">"1.5"</code>, <code class="lang-kotlin">0</code> → <code class="lang-kotlin">"0"</code>.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="format-night.html"><span class="token function">formatNight</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">base<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">BigInteger</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Format a raw NIGHT balance (smallest units) as a human display string, trimming trailing zeros: <code class="lang-kotlin">5_000_000</code> → <code class="lang-kotlin">"5"</code>, <code class="lang-kotlin">1_500_000</code> → <code class="lang-kotlin">"1.5"</code>, <code class="lang-kotlin">0</code> → <code class="lang-kotlin">"0"</code>.</p></div></div></div>
                 </div>
               </div>
             </div>

@@ -41,7 +41,7 @@
             </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
-        <div class="library-version" id="library-version">0.1.0-alpha04
+        <div class="library-version" id="library-version">0.1.0-alpha05
         </div>
         <div class="navigation-controls">
         <div class="filter-section filter-section_loading" id="filter-section">
@@ -95,7 +95,7 @@
   <div class="cover ">
     <h1 class="cover"><span><span>close</span></span></h1>
   </div>
-  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="close.html"><span class="token function">close</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:midnight-sdk:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="close.html"><span class="token function">close</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><p class="paragraph">Release resources. Suspends because closing the dust state must be serialized against an in-flight balance: <code class="lang-kotlin">balanceAgainst</code> reads the shared <a href="../../../../core/crypto/com.midnight.kuira.core.crypto.dust/-dust-local-state/index.html">DustLocalState</a>'s nullifiers under <a href="../../../../sdk/midnight-sdk/com.midnight.kuira.sdk/-midnight-wallet/balance-mutex.html">balanceMutex</a>, so closing it out from under a running balance throws "DustLocalState has been closed" (regression — every other dust-close path already holds this mutex; the teardown one added later did not). Under localnet the balance is instant so the window never opened; on PreProd it spans seconds of dust sync, so a teardown mid-deploy raced the close. Acquiring the mutex here makes the teardown WAIT for the balance instead of yanking its state.</p></div></div>
 </div>
     <div class="footer">
         <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>

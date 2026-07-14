@@ -41,7 +41,7 @@
             </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
-        <div class="library-version" id="library-version">0.1.0-alpha04
+        <div class="library-version" id="library-version">0.1.0-alpha05
         </div>
         <div class="navigation-controls">
         <div class="filter-section filter-section_loading" id="filter-section">
@@ -94,24 +94,24 @@
   <div class="breadcrumbs"><a href="../../index.html">dapp-ui</a><span class="delimiter">/</span><a href="../index.html">com.midnight.kuira.dapp.wallet</a><span class="delimiter">/</span><span class="current">WalletPanelViewModel</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Wallet</span><wbr><span>Panel</span><wbr><span>View</span><wbr><span><span>Model</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:dapp-ui:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">WalletPanelViewModel</a>&nbsp;<span><span class="token annotation builtin">@</span><span data-unresolved-link="javax.inject/Inject///PointingToDeclaration/"><span class="token annotation builtin">Inject</span></span>&nbsp;</span><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">sdkProvider<span class="token operator">: </span><a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-midnight-sdk-provider/index.html">MidnightSdkProvider</a><span class="token punctuation">, </span></span><span class="parameter ">sigilStateStore<span class="token operator">: </span><a href="../../../../core/identity/com.midnight.kuira.core.identity.sigil/-sigil-state-store/index.html">SigilStateStore</a><span class="token punctuation">, </span></span><span class="parameter ">driveAuth<span class="token operator">: </span><a href="../../../../core/identity/com.midnight.kuira.core.identity.backup/-drive-auth-manager/index.html">DriveAuthManager</a><span class="token punctuation">, </span></span><span class="parameter ">sessionLock<span class="token operator">: </span><a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-session-lock/index.html">SessionLock</a><span class="token punctuation">, </span></span><span class="parameter ">networkStore<span class="token operator">: </span><a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-network-preference-store/index.html">NetworkPreferenceStore</a><span class="token punctuation">, </span></span><span class="parameter ">appContext<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">appDataProvider<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Optional.html">Optional</a><span class="token operator">&lt;</span><a href="../../com.midnight.kuira.dapp.backup/-app-data-backup-provider/index.html">AppDataBackupProvider</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span> : <a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel.html">ViewModel</a></div><p class="paragraph">Wallet panel presenter: drives the canonical <a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-wallet-config/index.html">WalletConfig</a> and translates SDK / seed state into <a href="../-wallet-status/index.html">WalletStatus</a> for the panel UI.</p><p class="paragraph"><strong>The config authority.</strong> The panel is the only surface with the network / proving-mode / proof-server toggles, so it's where config changes enter the system. It passes the current <a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-wallet-config/index.html">WalletConfig</a> to <a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-midnight-sdk-provider/ensure-sdk.html">MidnightSdkProvider.ensureSdk</a>, which builds (or rebuilds) the one shared SDK. Other consumers (BBoard, Kicks) <i>follow</i> that SDK via the provider — they never build their own. That's what makes the app sync once instead of once per consumer.</p><p class="paragraph"><strong>Does NOT own the SDK lifecycle.</strong> <a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-midnight-sdk-provider/index.html">MidnightSdkProvider</a> is a process singleton that survives activity recreation, so there's no SDK to close in <a href="../../../../sdk/dapp-ui/com.midnight.kuira.dapp.wallet/-wallet-panel-view-model/on-cleared.html">onCleared</a>. The provider also owns seed bootstrap (it delegates to <code class="lang-kotlin">WalletSeedSource</code>) and wallet proving-key readiness; this VM just requests the SDK and reads balances off it.</p><p class="paragraph"><strong>Public surface:</strong> <a href="status.html">status</a> (observe), <a href="refresh-balance.html">refreshBalance</a> / <a href="register-dust.html">registerDust</a> (act). Funding needs no handler — the Receive screen shows the airdrop command and the SDK's subscription picks up the credit on its own.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:dapp-ui:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">WalletPanelViewModel</a>&nbsp;<span><span class="token annotation builtin">@</span><span data-unresolved-link="javax.inject/Inject///PointingToDeclaration/"><span class="token annotation builtin">Inject</span></span>&nbsp;</span><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">sdkProvider<span class="token operator">: </span><a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-midnight-sdk-provider/index.html">MidnightSdkProvider</a><span class="token punctuation">, </span></span><span class="parameter ">sigilStateStore<span class="token operator">: </span><a href="../../../../core/identity/com.midnight.kuira.core.identity.sigil/-sigil-state-store/index.html">SigilStateStore</a><span class="token punctuation">, </span></span><span class="parameter ">driveAuth<span class="token operator">: </span><a href="../../../../core/identity/com.midnight.kuira.core.identity.backup/-drive-auth-manager/index.html">DriveAuthManager</a><span class="token punctuation">, </span></span><span class="parameter ">sessionLock<span class="token operator">: </span><a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-session-lock/index.html">SessionLock</a><span class="token punctuation">, </span></span><span class="parameter ">networkStore<span class="token operator">: </span><a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-network-preference-store/index.html">NetworkPreferenceStore</a><span class="token punctuation">, </span></span><span class="parameter ">appContext<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">appDataProvider<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Optional.html">Optional</a><span class="token operator">&lt;</span><a href="../../com.midnight.kuira.dapp.backup/-app-data-backup-provider/index.html">AppDataBackupProvider</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">backupState<span class="token operator">: </span><a href="../-dust-backup-state-store/index.html">DustBackupStateStore</a><span class="token punctuation">, </span></span><span class="parameter ">restoreGate<span class="token operator">: </span><a href="../-dust-restore-gate-impl/index.html">DustRestoreGateImpl</a><span class="token punctuation">, </span></span><span class="parameter ">identityProvenance<span class="token operator">: </span><a href="../../com.midnight.kuira.dapp.sigil/-identity-provenance-store/index.html">IdentityProvenanceStore</a></span></span><span class="token punctuation">)</span> : <a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel.html">ViewModel</a></div><p class="paragraph">Wallet panel presenter: drives the canonical <a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-wallet-config/index.html">WalletConfig</a> and translates SDK / seed state into <a href="../-wallet-status/index.html">WalletStatus</a> for the panel UI.</p><p class="paragraph"><strong>The config authority.</strong> The panel is the only surface with the network / proving-mode / proof-server toggles, so it's where config changes enter the system. It passes the current <a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-wallet-config/index.html">WalletConfig</a> to <a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-midnight-sdk-provider/ensure-sdk.html">MidnightSdkProvider.ensureSdk</a>, which builds (or rebuilds) the one shared SDK. Other consumers (BBoard, Kicks) <i>follow</i> that SDK via the provider — they never build their own. That's what makes the app sync once instead of once per consumer.</p><p class="paragraph"><strong>Does NOT own the SDK lifecycle.</strong> <a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-midnight-sdk-provider/index.html">MidnightSdkProvider</a> is a process singleton that survives activity recreation, so there's no SDK to close in <a href="../../../../sdk/dapp-ui/com.midnight.kuira.dapp.wallet/-wallet-panel-view-model/on-cleared.html">onCleared</a>. The provider also owns seed bootstrap (it delegates to <code class="lang-kotlin">WalletSeedSource</code>) and wallet proving-key readiness; this VM just requests the SDK and reads balances off it.</p><p class="paragraph"><strong>Public surface:</strong> <a href="status.html">status</a> (observe), <a href="refresh-balance.html">refreshBalance</a> / <a href="register-dust.html">registerDust</a> (act). Funding needs no handler — the Receive screen shows the airdrop command and the SDK's subscription picks up the credit on its own.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
       <div data-togglable="CONSTRUCTOR">
         <h2 class="">Constructors</h2>
-        <div class="table"><a data-name="-1709935010%2FConstructors%2F-232773247" anchor-label="WalletPanelViewModel" id="-1709935010%2FConstructors%2F-232773247" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release"></a>
+        <div class="table"><a data-name="1494592992%2FConstructors%2F-232773247" anchor-label="WalletPanelViewModel" id="1494592992%2FConstructors%2F-232773247" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release"></a>
           <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":sdk:dapp-ui:dokkaHtmlPartial/release" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-wallet-panel-view-model.html"><span>Wallet</span><wbr><span>Panel</span><wbr><span>View</span><wbr><span><span>Model</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1709935010%2FConstructors%2F-232773247"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1494592992%2FConstructors%2F-232773247"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:dapp-ui:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="javax.inject/Inject///PointingToDeclaration/"><span class="token annotation builtin">Inject</span></span></div></div><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">sdkProvider<span class="token operator">: </span><a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-midnight-sdk-provider/index.html">MidnightSdkProvider</a><span class="token punctuation">, </span></span><span class="parameter ">sigilStateStore<span class="token operator">: </span><a href="../../../../core/identity/com.midnight.kuira.core.identity.sigil/-sigil-state-store/index.html">SigilStateStore</a><span class="token punctuation">, </span></span><span class="parameter ">driveAuth<span class="token operator">: </span><a href="../../../../core/identity/com.midnight.kuira.core.identity.backup/-drive-auth-manager/index.html">DriveAuthManager</a><span class="token punctuation">, </span></span><span class="parameter ">sessionLock<span class="token operator">: </span><a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-session-lock/index.html">SessionLock</a><span class="token punctuation">, </span></span><span class="parameter ">networkStore<span class="token operator">: </span><a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-network-preference-store/index.html">NetworkPreferenceStore</a><span class="token punctuation">, </span></span><span class="parameter ">appContext<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">appDataProvider<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Optional.html">Optional</a><span class="token operator">&lt;</span><a href="../../com.midnight.kuira.dapp.backup/-app-data-backup-provider/index.html">AppDataBackupProvider</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:dapp-ui:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="javax.inject/Inject///PointingToDeclaration/"><span class="token annotation builtin">Inject</span></span></div></div><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">sdkProvider<span class="token operator">: </span><a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-midnight-sdk-provider/index.html">MidnightSdkProvider</a><span class="token punctuation">, </span></span><span class="parameter ">sigilStateStore<span class="token operator">: </span><a href="../../../../core/identity/com.midnight.kuira.core.identity.sigil/-sigil-state-store/index.html">SigilStateStore</a><span class="token punctuation">, </span></span><span class="parameter ">driveAuth<span class="token operator">: </span><a href="../../../../core/identity/com.midnight.kuira.core.identity.backup/-drive-auth-manager/index.html">DriveAuthManager</a><span class="token punctuation">, </span></span><span class="parameter ">sessionLock<span class="token operator">: </span><a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-session-lock/index.html">SessionLock</a><span class="token punctuation">, </span></span><span class="parameter ">networkStore<span class="token operator">: </span><a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-network-preference-store/index.html">NetworkPreferenceStore</a><span class="token punctuation">, </span></span><span class="parameter ">appContext<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">appDataProvider<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Optional.html">Optional</a><span class="token operator">&lt;</span><a href="../../com.midnight.kuira.dapp.backup/-app-data-backup-provider/index.html">AppDataBackupProvider</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">backupState<span class="token operator">: </span><a href="../-dust-backup-state-store/index.html">DustBackupStateStore</a><span class="token punctuation">, </span></span><span class="parameter ">restoreGate<span class="token operator">: </span><a href="../-dust-restore-gate-impl/index.html">DustRestoreGateImpl</a><span class="token punctuation">, </span></span><span class="parameter ">identityProvenance<span class="token operator">: </span><a href="../../com.midnight.kuira.dapp.sigil/-identity-provenance-store/index.html">IdentityProvenanceStore</a></span></span><span class="token punctuation">)</span></div></div></div>
                 </div>
               </div>
             </div>
@@ -154,6 +154,21 @@
               </div>
             </div>
           </div>
+<a data-name="53456060%2FProperties%2F-232773247" anchor-label="backupSetupOffer" id="53456060%2FProperties%2F-232773247" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sdk:dapp-ui:dokkaHtmlPartial/release" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="backup-setup-offer.html"><span>backup</span><wbr><span>Setup</span><wbr><span><span>Offer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="53456060%2FProperties%2F-232773247"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:dapp-ui:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="backup-setup-offer.html">backupSetupOffer</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/StateFlow///PointingToDeclaration/">StateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
 <a data-name="1468318815%2FProperties%2F-232773247" anchor-label="consentRequests" id="1468318815%2FProperties%2F-232773247" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release"></a>
           <div class="table-row" data-filterable-current=":sdk:dapp-ui:dokkaHtmlPartial/release" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release">
             <div class="main-subrow keyValue ">
@@ -165,6 +180,21 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:dapp-ui:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="consent-requests.html">consentRequests</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/SharedFlow///PointingToDeclaration/">SharedFlow</span><span class="token operator">&lt;</span><a href="https://developer.android.com/reference/kotlin/androidx/activity/result/IntentSenderRequest.html">IntentSenderRequest</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-915825078%2FProperties%2F-232773247" anchor-label="gateConsentRequests" id="-915825078%2FProperties%2F-232773247" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sdk:dapp-ui:dokkaHtmlPartial/release" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="gate-consent-requests.html"><span>gate</span><wbr><span>Consent</span><wbr><span><span>Requests</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-915825078%2FProperties%2F-232773247"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:dapp-ui:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="gate-consent-requests.html">gateConsentRequests</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/SharedFlow///PointingToDeclaration/">SharedFlow</span><span class="token operator">&lt;</span><a href="https://developer.android.com/reference/kotlin/androidx/activity/result/IntentSenderRequest.html">IntentSenderRequest</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">The restore gate's consent launches (#61) — the panel collects these into the SAME launcher as <a href="consent-requests.html">consentRequests</a>; results route back through <a href="on-consent-result.html">onConsentResult</a>, which offers them to the gate first.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -195,6 +225,21 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:dapp-ui:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="recovery-phrase-saved.html">recoveryPhraseSaved</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/StateFlow///PointingToDeclaration/">StateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Whether the user has saved their phrase — drives the backup-status chip.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1493169711%2FProperties%2F-232773247" anchor-label="restoreOffer" id="1493169711%2FProperties%2F-232773247" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sdk:dapp-ui:dokkaHtmlPartial/release" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="restore-offer.html"><span>restore</span><wbr><span><span>Offer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1493169711%2FProperties%2F-232773247"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:dapp-ui:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="restore-offer.html">restoreOffer</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/StateFlow///PointingToDeclaration/">StateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">True while the restore gate is offering a restore — the panel renders the blocking "Restore your wallet data?" step (<a href="connect-restore.html">connectRestore</a> / <a href="skip-restore.html">skipRestore</a>). Making the skip an explicit choice (with the re-sync cost stated) is the point: the naked system consent was too easy to dismiss by accident, silently costing a full genesis replay.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -308,7 +353,22 @@
       </div>
       <div data-togglable="FUNCTION">
         <h2 class="">Functions</h2>
-        <div class="table"><a data-name="978795377%2FFunctions%2F-232773247" anchor-label="addCloseable" id="978795377%2FFunctions%2F-232773247" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release"></a>
+        <div class="table"><a data-name="-1322357903%2FFunctions%2F-232773247" anchor-label="acceptBackupSetup" id="-1322357903%2FFunctions%2F-232773247" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sdk:dapp-ui:dokkaHtmlPartial/release" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="accept-backup-setup.html"><span>accept</span><wbr><span>Backup</span><wbr><span><span>Setup</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1322357903%2FFunctions%2F-232773247"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:dapp-ui:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="accept-backup-setup.html"><span class="token function">acceptBackupSetup</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">config<span class="token operator">: </span><a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-wallet-config/index.html">WalletConfig</a><span class="token punctuation">, </span></span><span class="parameter ">activity<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentActivity.html">FragmentActivity</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Accept the setup offer: run the normal enable flow (consent + bidirectional sync).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="978795377%2FFunctions%2F-232773247" anchor-label="addCloseable" id="978795377%2FFunctions%2F-232773247" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release"></a>
           <div class="table-row" data-filterable-current=":sdk:dapp-ui:dokkaHtmlPartial/release" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
@@ -334,6 +394,21 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:dapp-ui:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="clear-revealed-phrase.html"><span class="token function">clearRevealedPhrase</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Drop the in-memory revealed words (call when the reveal screen closes).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1198363929%2FFunctions%2F-232773247" anchor-label="connectRestore" id="1198363929%2FFunctions%2F-232773247" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sdk:dapp-ui:dokkaHtmlPartial/release" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="connect-restore.html"><span>connect</span><wbr><span><span>Restore</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1198363929%2FFunctions%2F-232773247"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:dapp-ui:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="connect-restore.html"><span class="token function">connectRestore</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">The user chose Connect &amp; Restore on the offer step.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -364,6 +439,21 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:dapp-ui:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="disable-backup.html"><span class="token function">disableBackup</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">config<span class="token operator">: </span><a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-wallet-config/index.html">WalletConfig</a><span class="token punctuation">, </span></span><span class="parameter ">activity<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentActivity.html">FragmentActivity</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">TRUE backup disable (#246): delete BOTH cloud blobs (dust + app-state), then revoke the Drive grant, and opt out locally. Order matters — delete the blobs (which need Drive access) BEFORE revoking consent. The wallet + sigil are unaffected (recovery is the passkey); this only drops the cloud copies. The host confirms first via the BackupSection dialog.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1311338252%2FFunctions%2F-232773247" anchor-label="dismissBackupSetup" id="1311338252%2FFunctions%2F-232773247" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sdk:dapp-ui:dokkaHtmlPartial/release" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="dismiss-backup-setup.html"><span>dismiss</span><wbr><span>Backup</span><wbr><span><span>Setup</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1311338252%2FFunctions%2F-232773247"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:dapp-ui:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="dismiss-backup-setup.html"><span class="token function">dismissBackupSetup</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Dismiss the setup offer — never nagged again; the BackupSection toggle remains.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -619,6 +709,21 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:dapp-ui:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-dust-backup.html"><span class="token function">setDustBackup</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">enabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">config<span class="token operator">: </span><a href="../../../../sdk/wallet-runtime/com.midnight.kuira.sdk.walletruntime/-wallet-config/index.html">WalletConfig</a><span class="token punctuation">, </span></span><span class="parameter ">activity<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentActivity.html">FragmentActivity</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Two-way dust-backup toggle from the pill's Switch.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2129585298%2FFunctions%2F-232773247" anchor-label="skipRestore" id="-2129585298%2FFunctions%2F-232773247" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":sdk:dapp-ui:dokkaHtmlPartial/release" data-filterable-set=":sdk:dapp-ui:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="skip-restore.html"><span>skip</span><wbr><span><span>Restore</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2129585298%2FFunctions%2F-232773247"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sdk:dapp-ui:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="skip-restore.html"><span class="token function">skipRestore</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">The user explicitly chose to re-sync from scratch.</p></div></div></div>
                 </div>
               </div>
             </div>

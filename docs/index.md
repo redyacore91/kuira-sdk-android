@@ -60,6 +60,30 @@ An on-chain bulletin board — the deploy → call → read flow end-to-end: cre
 </div>
 </article>
 
+<article class="kuira-template" markdown>
+<img class="kuira-template__shot" src="assets/images/midnight-kicks.png" alt="Midnight Kicks — ZK penalty shootout on device" loading="lazy">
+<div class="kuira-template__body" markdown>
+<span class="kuira-template__eyebrow">Example</span>
+<h3 class="kuira-template__title">Midnight Kicks</h3>
+<p class="kuira-template__desc">
+A ZK penalty shootout on Unity 3D and Kotlin, with a Compact contract as the on-chain referee. Commit-reveal so neither side can cheat, and every move is proved on the phone.
+</p>
+<div class="kuira-template__actions" data-copy-prompt="https://raw.githubusercontent.com/kuiralabs/midnight-kicks/main/README.md" data-task="Clone the Midnight Kicks example and get it running on a device, then help me customize it."></div>
+</div>
+</article>
+
+<article class="kuira-template" markdown>
+<img class="kuira-template__shot" src="assets/images/kuira-vault.svg" alt="Kuira Vault — M-of-N multisig treasury" loading="lazy">
+<div class="kuira-template__body" markdown>
+<span class="kuira-template__eyebrow">Example</span>
+<h3 class="kuira-template__title">Kuira Vault</h3>
+<p class="kuira-template__desc">
+An M-of-N multisig treasury: deposit, propose, approve, execute. A threshold of independent passkey signers governs real fund movement, with chain-truth reads and multi-device Connect.
+</p>
+<div class="kuira-template__actions" data-copy-prompt="https://raw.githubusercontent.com/kuiralabs/kuira-vault-android/main/README.md" data-task="Clone the Kuira Vault Android example and get it running on a device, then help me customize it."></div>
+</div>
+</article>
+
 </div>
 </section>
 
@@ -193,7 +217,9 @@ Use `midnight-sdk`. → [Choose your level](integration.md#choose-your-level)
 
 **Working examples** — clone, build, read the source:
 [Kuira Starter](https://github.com/kuiralabs/kuira-starter-android) (minimal counter, also a GitHub template) ·
-[BBoard](https://github.com/kuiralabs/example-bboard-android) (on-chain bulletin board).
+[BBoard](https://github.com/kuiralabs/example-bboard-android) (on-chain bulletin board) ·
+[Midnight Kicks](https://github.com/kuiralabs/midnight-kicks) (ZK penalty-shootout game) ·
+[Kuira Vault](https://github.com/kuiralabs/kuira-vault-android) (M-of-N multisig treasury).
 
 ---
 

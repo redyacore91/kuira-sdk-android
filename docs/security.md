@@ -236,7 +236,7 @@ We follow **coordinated disclosure**:
 - A target disclosure date is set (within the 90-day window, or sooner if
   the fix is ready).
 - On the disclosure date: a patched release ships, the advisory is
-  published via GitHub Security Advisories, the CHANGELOG names the
+  published via GitHub Security Advisories, the [changelog](changelog.md) names the
   affected versions, and — if the reporter wishes — credit is given by
   name.
 
