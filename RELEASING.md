@@ -43,6 +43,7 @@ guard. It does **not** touch the changelog, the roadmap, or the Compact toolchai
 
 ### 5. Version-dependent narrative docs (manual)
 - [ ] `docs/roadmap.md`: move newly-shipped items from In progress / Planned to Shipped; add anything new to Planned.
+- [ ] `docs/migrating.md`: add a new `<old> → <new>` section with the upgrade prompt (breaking changes + recommended adoptions). Prior sections stay as history; use literal versions, not the macro.
 - [ ] `docs/capabilities.md` and any recipe whose behavior changed with the release.
 - [ ] Sweep for stale hard-coded versions: `grep -rnE "0\.1\.0-alpha0[0-9]" docs/ | grep -v docs/api/`. The `{{ kuira_version }}` macro covers everything that uses it; this catches the ones that don't.
 

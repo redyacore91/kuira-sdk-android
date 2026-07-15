@@ -119,6 +119,7 @@ nav:
   - API reference: api-reference.md
   - Roadmap: roadmap.md
   - Changelog: changelog.md
+  - Migration Prompts: migrating.md
   - Security: security.md
 
 extra:
