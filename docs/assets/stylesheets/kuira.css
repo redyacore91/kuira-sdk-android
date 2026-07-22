@@ -832,9 +832,10 @@ html {
     gap: 1.25rem;
     margin: 2rem 0 2.5rem;
 }
-/* Card is a link, but only the "View on GitHub" cue should ever underline. */
-.md-typeset a.kuira-example,
-.md-typeset a.kuira-example:hover {
+/* Card is an <article> carrying its own actions (copy-prompt button + a
+   "View on GitHub" link); only the GitHub cue underlines, and only on its
+   own hover. */
+.md-typeset a.kuira-example__link {
     text-decoration: none;
 }
 .kuira-example {
@@ -884,13 +885,25 @@ html {
     line-height: 1.5;
     color: var(--kuira-light-soft);
 }
+.kuira-example__actions {
+    margin-top: 0.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+.kuira-example__actions .md-button {
+    margin: 0;
+    font-size: 0.8rem;
+    padding: 0.4em 0.95em;
+}
 .kuira-example__link {
-    margin-top: 0.35rem;
+    margin-top: 0.5rem;
     font-size: 0.82rem;
     font-weight: 500;
     color: var(--kuira-light);
 }
-.kuira-example:hover .kuira-example__link {
+.kuira-example__link:hover {
     text-decoration: underline;
 }
 @media (max-width: 480px) {

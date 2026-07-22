@@ -59,13 +59,18 @@
             host.appendChild(button);
 
             // Also surface the raw context URL as a plain link so users
-            // (and crawlers) can see / share it without copying.
-            const rawLink = document.createElement('a');
-            rawLink.href = bundleUrl;
-            rawLink.className = 'md-button';
-            rawLink.style.marginLeft = '0.5rem';
-            rawLink.innerHTML = '<span class="twemoji">📄</span> View raw context bundle';
-            host.appendChild(rawLink);
+            // (and crawlers) can see / share it without copying. Hosts that
+            // already carry their own repo/source link (e.g. the Examples
+            // cards) opt out with data-hide-raw="true" to keep a clean
+            // two-action row.
+            if (host.dataset.hideRaw !== 'true') {
+                const rawLink = document.createElement('a');
+                rawLink.href = bundleUrl;
+                rawLink.className = 'md-button';
+                rawLink.style.marginLeft = '0.5rem';
+                rawLink.innerHTML = '<span class="twemoji">📄</span> View raw context bundle';
+                host.appendChild(rawLink);
+            }
         });
     }
 
