@@ -93,3 +93,6 @@ Apache License 2.0 — see [LICENSE](LICENSE).
 
 [nel349](https://github.com/nel349) — [kuiralabs@gmail.com](mailto:kuiralabs@gmail.com).
 Security reports: see [SECURITY.md](SECURITY.md).
+## Troubleshooting
+- **Issue**: Build failed due to Compact version mismatch.
+- **Solution**: Ensure Compact CLI version `0.31.0` is pinned in your environment.
