@@ -280,3 +280,4 @@ first; cloud-bucket PIN recovery follows.
 ## License
 
 Apache License 2.0 — see [LICENSE](https://github.com/kuiralabs/kuira-sdk-android/blob/main/LICENSE).
+<!-- Improved documentation layout -->
